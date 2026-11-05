@@ -6,6 +6,7 @@ import { Button } from "@/components/Button";
 import { ClosingCta } from "@/components/ClosingCta";
 import { Faq } from "@/components/Faq";
 import { MethodCards } from "@/components/MethodCards";
+import { Reveal } from "@/components/Reveal";
 import { StatsBand } from "@/components/StatsBand";
 import { getArticlesByAudience } from "@/lib/articles";
 
@@ -102,14 +103,15 @@ export default function HomePage() {
   return (
     <>
       <header className="hero-shell">
-        <div className="container hero-anim">
+        <div className="container hero-anim max-w-[920px]">
+          <p className="brand-mark mb-5">BVOSales</p>
           <p className="eyebrow">Business sales, backed by valuation expertise</p>
-          <h1 className="display h1-home mt-4 mb-6 max-w-[14em]">
+          <h1 className="display h1-home mt-5 mb-6">
             Sell your business with the numbers on your side.
           </h1>
-          <p className="lead mb-8">
-            BVOSales puts a business valuer, an experienced broker and a campaign marketer on the same
-            sale. We get the business ready, take it to the right buyers and see it through to settlement.
+          <p className="lead mb-9">
+            A business valuer, an experienced broker and a campaign marketer on the same sale. We get the
+            business ready, take it to the right buyers and see it through to settlement.
           </p>
           <div className="flex flex-wrap gap-3">
             <Button href="/sell" variant="burgundy">
@@ -122,18 +124,23 @@ export default function HomePage() {
               Not ready to sell yet?
             </Button>
           </div>
-          <p className="mt-6 mb-0">
-            <Link href="/accountants-advisers" className="text-[15px] font-medium underline-offset-4 hover:underline">
+          <p className="mt-7 mb-0">
+            <Link
+              href="/accountants-advisers"
+              className="text-[15px] font-medium underline-offset-4 hover:underline"
+            >
               I’m an accountant or adviser with a client selling
             </Link>
           </p>
         </div>
       </header>
 
-      <section className="section pt-8">
-        <div className="container reveal">
-          <p className="eyebrow">Your sale team</p>
-          <h2 className="h2 mt-3 mb-10">One team, start to finish</h2>
+      <section className="section pt-4">
+        <div className="container">
+          <Reveal>
+            <p className="eyebrow">Your sale team</p>
+            <h2 className="h2 mt-3 mb-10 max-w-[12em]">One team, start to finish</h2>
+          </Reveal>
           <div className="grid gap-5 md:grid-cols-3">
             {[
               {
@@ -157,61 +164,69 @@ export default function HomePage() {
                 bg: "linear-gradient(135deg, #c97f82, #8c3a42)",
                 color: "#ffffff",
               },
-            ].map((step) => (
-              <article key={step.title} className="surface-card p-7">
-                <div
-                  className="mb-5 flex h-14 w-14 items-center justify-center rounded-full font-display text-[22px] font-extrabold"
-                  style={{ background: step.bg, color: step.color }}
-                >
-                  {step.n}
-                </div>
-                <h3 className="m-0 font-display text-[26px] font-bold text-ink">{step.title}</h3>
-                <p className="mt-3 mb-0 text-[16px] leading-relaxed text-body">{step.body}</p>
-              </article>
+            ].map((step, i) => (
+              <Reveal key={step.title} delay={i * 90}>
+                <article className="surface-card h-full p-7">
+                  <div
+                    className="mb-5 flex h-14 w-14 items-center justify-center rounded-full font-display text-[22px] font-extrabold"
+                    style={{ background: step.bg, color: step.color }}
+                  >
+                    {step.n}
+                  </div>
+                  <h3 className="m-0 font-display text-[26px] font-bold tracking-tight text-ink">
+                    {step.title}
+                  </h3>
+                  <p className="mt-3 mb-0 text-[16px] leading-relaxed text-body">{step.body}</p>
+                </article>
+              </Reveal>
             ))}
           </div>
-          <p className="mt-8 mb-0 max-w-[48em] text-[16px] text-muted">
-            Every business is matched with the broker best suited to it, from our own team or our trusted partner network.
-          </p>
+          <Reveal delay={220}>
+            <p className="mt-8 mb-0 max-w-[48em] text-[16px] text-muted">
+              Every business is matched with the broker best suited to it, from our own team or our trusted
+              partner network.
+            </p>
+          </Reveal>
         </div>
       </section>
 
       <StatsBand
         lead="Backed by the team behind Business Valuations Online"
         stats={[
-          { value: "2,000+", label: "businesses valued" },
-          { value: "30+", label: "years combined valuation experience" },
+          { value: "2,000+", label: "businesses valued", numeric: 2000, suffix: "+" },
+          { value: "30+", label: "years combined valuation experience", numeric: 30, suffix: "+" },
           { value: "1 day", label: "to hear back from a real person" },
         ]}
       />
 
       <section className="section">
-        <div className="container reveal grid gap-12 lg:grid-cols-[1.2fr_0.8fr]">
-          <div>
+        <div className="container grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+          <Reveal>
             <h2 className="h2 mb-5">Most businesses go to market before they’re ready.</h2>
             <p className="lead mt-0 mb-5">
               Many owners set their asking price on what they need to retire, or what they heard a similar
               business sold for, rather than on what the business actually earns. Personal costs still run
-              through the books, so a buyer can’t see the real profit. And the business is often held in a
-              structure set up years ago for tax, not for a clean sale.
+              through the books, so a buyer can’t see the real profit.
             </p>
             <p className="mb-0 text-[17px] leading-relaxed text-body">
               Buyers find these issues in due diligence, and every surprise comes off the price. After more
-              than 2,000 valuations, we’ve seen how often that happens, and how avoidable it is. So we start
-              where every sale should: with a clear look at value, risk and structure, before the business is
-              put in front of a single buyer.
+              than 2,000 valuations, we’ve seen how often that happens, and how avoidable it is.
             </p>
-          </div>
+          </Reveal>
           <div className="grid gap-4">
             {[
               ["Ready", "Records, structure and risks sorted before a buyer goes looking for them."],
               ["Priced", "An asking price built on proper valuation work, so you can defend it at the table."],
               ["Protected", "Confidential from the first conversation, with buyers qualified before they see anything sensitive."],
-            ].map(([title, body]) => (
-              <div key={title} className="surface-card rounded-[18px] p-5">
-                <h3 className="m-0 font-display text-[22px] font-bold text-ink">{title}</h3>
-                <p className="mt-2 mb-0 text-[15px] leading-relaxed text-body">{body}</p>
-              </div>
+            ].map(([title, body], i) => (
+              <Reveal key={title} delay={i * 90}>
+                <div className="surface-card rounded-[18px] p-5">
+                  <h3 className="m-0 font-display text-[22px] font-bold tracking-tight text-ink">
+                    {title}
+                  </h3>
+                  <p className="mt-2 mb-0 text-[15px] leading-relaxed text-body">{body}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -240,113 +255,148 @@ export default function HomePage() {
       />
 
       <section className="section">
-        <div className="container reveal">
-          <p className="eyebrow">Who we help</p>
-          <h2 className="h2 mt-3 mb-10">Built for owners, buyers and the advisers they trust</h2>
+        <div className="container">
+          <Reveal>
+            <p className="eyebrow">Who we help</p>
+            <h2 className="h2 mt-3 mb-10 max-w-[14em]">
+              Built for owners, buyers and the advisers they trust
+            </h2>
+          </Reveal>
           <div className="grid gap-5 md:grid-cols-2">
-            {whoWeHelp.map((card) => (
-              <article
-                key={card.title}
-                className="flex flex-col rounded-[22px] p-7 shadow-[var(--shadow-card)]"
-                style={{ background: card.bg, color: card.text }}
-              >
-                <h3 className="m-0 font-display text-[26px] font-bold" style={{ color: card.text }}>
-                  {card.title}
-                </h3>
-                <p className="mt-3 mb-6 flex-1 text-[16px] leading-relaxed" style={{ color: card.muted }}>
-                  {card.body}
-                </p>
-                <div>
-                  <Button href={card.href} variant={card.btn}>
-                    {card.cta}
-                  </Button>
-                </div>
-              </article>
+            {whoWeHelp.map((card, i) => (
+              <Reveal key={card.title} delay={i * 80}>
+                <article
+                  className="flex h-full flex-col rounded-[22px] p-7 shadow-[var(--shadow-card)] transition duration-350 hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]"
+                  style={{ background: card.bg, color: card.text }}
+                >
+                  <h3
+                    className="m-0 font-display text-[26px] font-bold tracking-tight"
+                    style={{ color: card.text }}
+                  >
+                    {card.title}
+                  </h3>
+                  <p
+                    className="mt-3 mb-6 flex-1 text-[16px] leading-relaxed"
+                    style={{ color: card.muted }}
+                  >
+                    {card.body}
+                  </p>
+                  <div>
+                    <Button href={card.href} variant={card.btn}>
+                      {card.cta}
+                    </Button>
+                  </div>
+                </article>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       <section className="section section-band">
-        <div className="container reveal">
-          <p className="eyebrow">Why BVOSales</p>
-          <h2 className="h2 mt-3 mb-4">Not just another broker. A valuation firm that sells.</h2>
-          <p className="lead mb-8">
-            Most brokers learn about your numbers once you’ve signed. We start with them. That changes the
-            price you ask, the buyers you talk to and what you keep at the end.
-          </p>
-          <Button href="/about" variant="burgundy" className="mb-10">
-            Meet the team
-          </Button>
+        <div className="container">
+          <Reveal>
+            <p className="eyebrow">Why BVOSales</p>
+            <h2 className="h2 mt-3 mb-4 max-w-[14em]">
+              Not just another broker. A valuation firm that sells.
+            </h2>
+            <p className="lead mb-8">
+              Most brokers learn about your numbers once you’ve signed. We start with them. That changes the
+              price you ask, the buyers you talk to and what you keep at the end.
+            </p>
+            <Button href="/about" variant="burgundy" className="mb-10">
+              Meet the team
+            </Button>
+          </Reveal>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
               ["Valuation first", "The same methodology behind our formal APES 225 valuations sits under every asking price."],
               ["Structured before sale", "Entity, assets and sale type reviewed early, with your accountant, so the tax position isn’t a surprise at settlement."],
               ["Straight answers", "If the business isn’t ready, we’ll tell you, and tell you what to fix first."],
               ["The right broker, always", "We match every business with the broker who suits its industry, size and likely buyers, from our own team or a trusted partner."],
-            ].map(([title, body]) => (
-              <div key={title} className="surface-card rounded-[18px] p-5">
-                <h3 className="m-0 font-display text-[20px] font-bold text-ink">{title}</h3>
-                <p className="mt-2 mb-0 text-[15px] leading-relaxed text-body">{body}</p>
-              </div>
+            ].map(([title, body], i) => (
+              <Reveal key={title} delay={i * 70}>
+                <div className="surface-card h-full rounded-[18px] p-5">
+                  <h3 className="m-0 font-display text-[20px] font-bold tracking-tight text-ink">
+                    {title}
+                  </h3>
+                  <p className="mt-2 mb-0 text-[15px] leading-relaxed text-body">{body}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       <section className="section">
-        <div className="container reveal">
-          <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
-            <h2 className="h2 m-0">The people on your sale</h2>
-            <Link href="/about" className="font-semibold no-underline hover:underline">
-              About BVOSales
-            </Link>
-          </div>
+        <div className="container">
+          <Reveal>
+            <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
+              <h2 className="h2 m-0">The people on your sale</h2>
+              <Link href="/about" className="font-semibold no-underline hover:underline">
+                About BVOSales
+              </Link>
+            </div>
+          </Reveal>
           <div className="grid gap-8 md:grid-cols-3">
             {[
               {
                 name: "Brett Goodyer",
                 role: "Valuation and structure. FCPA, B.Com, M.ForAccy",
-                bio: "Award-winning business valuer and forensic accountant with 20+ years in the field and expert evidence given across Australian courts. Founder of Business Valuations Online, creator of BVOPro and BVOai, and author of Beyond the Bullshit.",
+                bio: "Award-winning business valuer and forensic accountant with 20+ years in the field and expert evidence given across Australian courts.",
                 image: "/assets/team/brett-goodyer.jpg",
               },
               {
                 name: "Belinda Packer",
                 role: "Business broker, Morgan Business Sales, QLD",
-                bio: "National MVP Business Broker of the Year 2022, with 21+ years in business growth, exit planning and M&A. Leads the sale from buyer qualification and negotiation through to settlement.",
+                bio: "National MVP Business Broker of the Year 2022, with 21+ years in business growth, exit planning and M&A.",
                 image: "/assets/team/belinda-packer.jpg",
               },
               {
                 name: "Amanda Goodyer",
-                role: "Business broker and campaign lead, Morgan Business Sales, Sydney and NSW",
-                bio: "A marketing background and years in business valuation. Makes sure every campaign reaches the right buyers with the right story.",
+                role: "Business broker and campaign lead, Morgan Business Sales",
+                bio: "A marketing background and years in business valuation. Makes sure every campaign reaches the right buyers.",
                 image: "/assets/team/amanda-goodyer.jpg",
               },
-            ].map((person) => (
-              <article key={person.name}>
-                <div className="relative mb-4 aspect-[4/5] overflow-hidden rounded-[18px] bg-black">
-                  <Image src={person.image} alt={person.name} fill className="object-cover" sizes="33vw" />
-                </div>
-                <h3 className="m-0 font-display text-[24px] font-bold text-ink">{person.name}</h3>
-                <p className="mt-2 mb-3 text-[14px] font-semibold text-burgundy">{person.role}</p>
-                <p className="m-0 text-[15px] leading-relaxed text-body">{person.bio}</p>
-              </article>
+            ].map((person, i) => (
+              <Reveal key={person.name} delay={i * 90}>
+                <article>
+                  <div className="relative mb-4 aspect-[4/5] overflow-hidden rounded-[20px] bg-black">
+                    <Image
+                      src={person.image}
+                      alt={person.name}
+                      fill
+                      className="object-cover transition duration-700 hover:scale-[1.03]"
+                      sizes="33vw"
+                    />
+                  </div>
+                  <h3 className="m-0 font-display text-[24px] font-bold tracking-tight text-ink">
+                    {person.name}
+                  </h3>
+                  <p className="mt-2 mb-3 text-[14px] font-semibold text-burgundy">{person.role}</p>
+                  <p className="m-0 text-[15px] leading-relaxed text-body">{person.bio}</p>
+                </article>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       <section className="section section-band">
-        <div className="container reveal">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-            <h2 className="h2 m-0">Worth reading before you sell</h2>
-            <Link href="/insights" className="font-semibold no-underline hover:underline">
-              All insights
-            </Link>
-          </div>
+        <div className="container">
+          <Reveal>
+            <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+              <h2 className="h2 m-0">Worth reading before you sell</h2>
+              <Link href="/insights" className="font-semibold no-underline hover:underline">
+                All insights
+              </Link>
+            </div>
+          </Reveal>
           <div className="grid gap-5 md:grid-cols-3">
-            {articles.map((article) => (
-              <ArticleCard key={article.slug} article={article} />
+            {articles.map((article, i) => (
+              <Reveal key={article.slug} delay={i * 80}>
+                <ArticleCard article={article} />
+              </Reveal>
             ))}
           </div>
         </div>
