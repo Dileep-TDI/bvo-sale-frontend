@@ -34,7 +34,7 @@ export function InsightsFilter({
     <>
       <a
         href={`/insights/${featured.slug}`}
-        className="mb-12 grid overflow-hidden rounded-[24px] border border-line bg-card no-underline text-inherit transition hover:border-line2 lg:grid-cols-[1.2fr_0.8fr]"
+        className="mb-12 grid overflow-hidden rounded-[24px] border border-line bg-card text-inherit no-underline shadow-[var(--shadow-soft)] transition hover:-translate-y-0.5 hover:border-line2 lg:grid-cols-[1.2fr_0.8fr]"
       >
         <div className="relative min-h-[240px] bg-tint2">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -66,8 +66,8 @@ export function InsightsFilter({
             onClick={() => setFilter(f)}
             className={`min-h-11 rounded-full px-5 text-[14px] font-semibold transition ${
               filter === f
-                ? "bg-burgundy text-white"
-                : "bg-band text-body hover:bg-line"
+                ? "bg-burgundy text-white shadow-[var(--shadow-card)]"
+                : "border border-line bg-card text-body hover:bg-band"
             }`}
           >
             {filterLabel(f)}

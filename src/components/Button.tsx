@@ -39,7 +39,7 @@ export function Button({
   className = "",
   external,
 }: Props) {
-  const cls = `inline-flex items-center justify-center min-h-[48px] px-6 rounded-full font-semibold text-[15px] no-underline transition ${styles[variant]} ${className}`;
+  const cls = `inline-flex items-center justify-center min-h-[48px] px-6 rounded-full font-semibold text-[15px] no-underline transition duration-200 hover:-translate-y-px ${styles[variant]} ${className}`;
 
   if (external || href.startsWith("http") || href.startsWith("tel:")) {
     return (

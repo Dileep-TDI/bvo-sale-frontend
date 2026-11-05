@@ -54,7 +54,7 @@ export default function ExitReadyPage() {
 
   return (
     <>
-      <header className="section pb-16 pt-12">
+      <header className="hero-shell pb-16">
         <div className="container hero-anim grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div>
             <Breadcrumbs

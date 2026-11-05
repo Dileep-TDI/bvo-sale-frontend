@@ -23,8 +23,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-AU" className={hanken.variable}>
-      <body className="min-h-screen flex flex-col antialiased">
+    <html lang="en-AU" className={hanken.variable} data-theme="light">
+      <body className="flex min-h-screen flex-col antialiased">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

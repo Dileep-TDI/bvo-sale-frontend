@@ -62,7 +62,7 @@ export default function SellPage() {
 
   return (
     <>
-      <header className="section pb-16 pt-12">
+      <header className="hero-shell pb-16">
         <div className="container hero-anim">
           <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: "Sell your business" }]} />
           <h1 className="display h1-page mt-2 mb-6 max-w-[16em]">

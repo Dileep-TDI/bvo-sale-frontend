@@ -59,7 +59,7 @@ const whoWeHelp = [
     body: "You’ve spent years building it. We make sure the sale reflects that, from the first valuation to the day the money lands.",
     href: "/sell",
     cta: "How selling works",
-    bg: "linear-gradient(150deg, #9a5558, #8b4a4c, #6f3a3c)",
+    bg: "linear-gradient(150deg, #a34f57, #8c3a42, #702e34)",
     text: "#ffffff",
     muted: "#f6ecec",
     btn: "cream" as const,
@@ -69,7 +69,7 @@ const whoWeHelp = [
     body: "Tell us what you’re looking for. We’ll help you find it and understand what it’s really worth before you make an offer.",
     href: "/buy",
     cta: "How buying works",
-    bg: "linear-gradient(150deg, #dcc4c5, #d2b9ba, #c97f82)",
+    bg: "linear-gradient(150deg, #f0e4e4, #d2b9ba, #c97f82)",
     text: "#4a2b2c",
     muted: "#3a2223",
     btn: "charcoal" as const,
@@ -89,8 +89,8 @@ const whoWeHelp = [
     body: "See what the business is worth today, the risks a buyer would discount you for, and what to fix first.",
     href: "/exit-ready",
     cta: "Get Exit Ready",
-    bg: "linear-gradient(150deg, #fbf6f6, #f3e6e6, #ead9d9)",
-    text: "#6f3a3c",
+    bg: "linear-gradient(150deg, #ffffff, #f8f2f2, #ead9d9)",
+    text: "#702e34",
     muted: "#3a2223",
     btn: "burgundy" as const,
   },
@@ -101,7 +101,7 @@ export default function HomePage() {
 
   return (
     <>
-      <header className="section pb-20 pt-16">
+      <header className="hero-shell">
         <div className="container hero-anim">
           <p className="eyebrow">Business sales, backed by valuation expertise</p>
           <h1 className="display h1-home mt-4 mb-6 max-w-[14em]">
@@ -130,7 +130,7 @@ export default function HomePage() {
         </div>
       </header>
 
-      <section className="section pt-0">
+      <section className="section pt-8">
         <div className="container reveal">
           <p className="eyebrow">Your sale team</p>
           <h2 className="h2 mt-3 mb-10">One team, start to finish</h2>
@@ -154,11 +154,11 @@ export default function HomePage() {
                 n: "3",
                 title: "Sell",
                 body: "Belinda Packer of Morgan Business Sales runs negotiations and due diligence through to settlement.",
-                bg: "linear-gradient(135deg, #c97f82, #8b4a4c)",
+                bg: "linear-gradient(135deg, #c97f82, #8c3a42)",
                 color: "#ffffff",
               },
             ].map((step) => (
-              <article key={step.title} className="rounded-[22px] border border-line bg-card p-7">
+              <article key={step.title} className="surface-card p-7">
                 <div
                   className="mb-5 flex h-14 w-14 items-center justify-center rounded-full font-display text-[22px] font-extrabold"
                   style={{ background: step.bg, color: step.color }}
@@ -208,7 +208,7 @@ export default function HomePage() {
               ["Priced", "An asking price built on proper valuation work, so you can defend it at the table."],
               ["Protected", "Confidential from the first conversation, with buyers qualified before they see anything sensitive."],
             ].map(([title, body]) => (
-              <div key={title} className="rounded-[18px] border border-line bg-card p-5">
+              <div key={title} className="surface-card rounded-[18px] p-5">
                 <h3 className="m-0 font-display text-[22px] font-bold text-ink">{title}</h3>
                 <p className="mt-2 mb-0 text-[15px] leading-relaxed text-body">{body}</p>
               </div>
@@ -247,7 +247,7 @@ export default function HomePage() {
             {whoWeHelp.map((card) => (
               <article
                 key={card.title}
-                className="flex flex-col rounded-[22px] p-7"
+                className="flex flex-col rounded-[22px] p-7 shadow-[var(--shadow-card)]"
                 style={{ background: card.bg, color: card.text }}
               >
                 <h3 className="m-0 font-display text-[26px] font-bold" style={{ color: card.text }}>
@@ -285,7 +285,7 @@ export default function HomePage() {
               ["Straight answers", "If the business isn’t ready, we’ll tell you, and tell you what to fix first."],
               ["The right broker, always", "We match every business with the broker who suits its industry, size and likely buyers, from our own team or a trusted partner."],
             ].map(([title, body]) => (
-              <div key={title} className="rounded-[18px] bg-card p-5 border border-line">
+              <div key={title} className="surface-card rounded-[18px] p-5">
                 <h3 className="m-0 font-display text-[20px] font-bold text-ink">{title}</h3>
                 <p className="mt-2 mb-0 text-[15px] leading-relaxed text-body">{body}</p>
               </div>

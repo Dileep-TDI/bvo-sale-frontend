@@ -47,7 +47,7 @@ export default function AdvisersPage() {
 
   return (
     <>
-      <header className="section pb-16 pt-12">
+      <header className="hero-shell pb-16">
         <div className="container hero-anim">
           <Breadcrumbs
             items={[{ href: "/", label: "Home" }, { label: "For accountants and advisers" }]}

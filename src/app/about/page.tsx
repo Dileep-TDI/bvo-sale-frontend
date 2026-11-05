@@ -21,7 +21,7 @@ const comparison = [
 export default function AboutPage() {
   return (
     <>
-      <header className="section pb-16 pt-12">
+      <header className="hero-shell pb-16">
         <div className="container hero-anim">
           <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: "About" }]} />
           <h1 className="display h1-page mt-2 mb-6 max-w-[14em]">
@@ -231,7 +231,7 @@ export default function AboutPage() {
                 href: "/about",
                 title: "BVOSales",
                 body: "Business sales backed by valuation expertise. You are here.",
-                bg: "linear-gradient(150deg, #9a5558, #8b4a4c, #6f3a3c)",
+                bg: "linear-gradient(150deg, #a34f57, #8c3a42, #702e34)",
                 color: "#ffffff",
               },
             ].map((card) => (

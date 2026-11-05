@@ -5,12 +5,12 @@ type Card = {
 };
 
 const backgrounds = [
+  "linear-gradient(150deg, #f3e6e6, #ead9d9)",
   "linear-gradient(150deg, #ead9d9, #d2b9ba)",
-  "linear-gradient(150deg, #d2b9ba, #c97f82)",
-  "linear-gradient(150deg, #9a5558, #8b4a4c, #6f3a3c)",
+  "linear-gradient(150deg, #a34f57, #8c3a42, #702e34)",
 ];
 
-const labelColors = ["#6f3a3c", "#4a2b2c", "#f1e3e3"];
+const labelColors = ["#702e34", "#4a2b2c", "#f1e3e3"];
 const headingColors = ["#1a1b19", "#1a1b19", "#ffffff"];
 const bodyColors = ["#3a2223", "#2b1a1b", "#f6ecec"];
 
@@ -24,15 +24,15 @@ export function MethodCards({
   cards: Card[];
 }) {
   return (
-    <section className="section section-dark">
+    <section className="section section-soft">
       <div className="container reveal">
-        <p className="eyebrow mb-3 text-rose">{eyebrow}</p>
-        <h2 className="h2 mb-10 text-cream">{title}</h2>
+        <p className="eyebrow mb-3">{eyebrow}</p>
+        <h2 className="h2 mb-10">{title}</h2>
         <div className="grid gap-5 md:grid-cols-3">
           {cards.map((card, i) => (
             <article
               key={card.title}
-              className="rounded-[22px] p-7"
+              className="rounded-[22px] p-7 shadow-[var(--shadow-card)]"
               style={{ background: backgrounds[i] }}
             >
               <p

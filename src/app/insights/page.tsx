@@ -16,7 +16,7 @@ export default function InsightsPage() {
 
   return (
     <>
-      <header className="section pb-10 pt-12">
+      <header className="hero-shell pb-10">
         <div className="container hero-anim">
           <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: "Insights" }]} />
           <h1 className="display h1-page mt-2 mb-4 max-w-[14em]">

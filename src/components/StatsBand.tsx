@@ -8,7 +8,7 @@ export function StatsBand({
   stats: Stat[];
 }) {
   return (
-    <section className="section-burgundy py-16">
+    <section className="section-burgundy py-16 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]">
       <div className="container reveal">
         <p className="mb-10 mt-0 max-w-[28em] text-[18px] text-[#f6ecec]">{lead}</p>
         <div className="grid gap-10 sm:grid-cols-3">
