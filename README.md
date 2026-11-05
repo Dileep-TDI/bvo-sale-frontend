@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BVOSales frontend
 
-## Getting Started
+Next.js 16 App Router site for BVOSales, built from the developer handoff in `../contents`.
 
-First, run the development server:
+## Stack
+
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- Hanken Grotesk + Helvetica Neue (design system)
+
+## Getting started
 
 ```bash
+cd bvo-sale-frontend
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Page | Path |
+| --- | --- |
+| Home | `/` |
+| Sell | `/sell` |
+| Exit Ready | `/exit-ready` |
+| Buy | `/buy` |
+| Accountants & advisers | `/accountants-advisers` |
+| About | `/about` |
+| Insights | `/insights` |
+| Article | `/insights/[slug]` |
+| Start chooser | `/start` |
+| Seller questionnaire | `/sell/questionnaire` |
+| Buyer questionnaire | `/buy/questionnaire` |
+| Adviser questionnaire | `/accountants-advisers/questionnaire` |
+| Privacy / Terms | `/privacy`, `/terms` (placeholders) |
 
-## Learn More
+## Content sources
 
-To learn more about Next.js, take a look at the following resources:
+- Page copy and SEO: `../contents/pages/`
+- Articles: `content/articles/` (copied from handoff)
+- Assets: `public/assets/` (brand, team, article illustrations)
+- Design tokens: `src/app/globals.css`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Questionnaire routing thresholds stay server/CRM-side (not exposed in client code).
+- Privacy, terms, buyer fees, valuation “from” price and a few FAQ placeholders remain open per the handoff.
