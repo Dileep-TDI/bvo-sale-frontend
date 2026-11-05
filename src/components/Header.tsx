@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -26,15 +25,16 @@ export function Header() {
       <div className="mx-auto flex min-h-[88px] max-w-[1280px] items-center justify-between gap-5 px-4 sm:px-6">
         <Link
           href="/"
-          className="flex shrink-0 items-center gap-3 text-cream no-underline"
+          className="flex shrink-0 items-center gap-3 !text-[#f3f4ec] no-underline hover:!text-[#f3f4ec]"
           onClick={() => setOpen(false)}
         >
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/assets/brand/bvosales-mark.svg"
             alt="BVO"
-            width={46}
+            width={44}
             height={46}
-            priority
+            style={{ height: 46, width: "auto", display: "block", maxWidth: 44 }}
           />
           <span className="hidden border-l border-[#6b6e66] pl-3 text-[25px] leading-none tracking-tight min-[480px]:inline">
             sales

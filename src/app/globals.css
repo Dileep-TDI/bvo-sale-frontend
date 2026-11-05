@@ -113,6 +113,17 @@ a.inline-flex:hover {
   color: inherit;
 }
 
+/* Match prototype footer: .ft a { color: #c9ccc2 } */
+.ft a {
+  color: #c9ccc2;
+  text-decoration: none;
+}
+
+.ft a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
 img {
   max-width: 100%;
   height: auto;

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 const explore = [
@@ -14,94 +13,97 @@ const group = [
   { href: "https://www.businessvaluations.online/", label: "Business Valuations Online", color: "#76bc43" },
   { href: "https://www.bvopro.online/", label: "BVOPro", color: "#a9c0d3" },
   { href: "https://www.bvo.ai/", label: "BVOai", color: "#2e86f5" },
-  { href: "/", label: "BVOSales", color: "#8b4a4c" },
 ];
 
 export function Footer() {
   return (
-    <footer className="bg-charcoal text-[#c9ccc2]">
-      <div className="container grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-4">
-        <div>
-          <Link href="/" className="mb-4 inline-flex items-center gap-3 text-cream no-underline">
-            <Image src="/assets/brand/bvosales-mark.svg" alt="BVO" width={40} height={40} />
-            <span className="border-l border-[#6b6e66] pl-3 text-[22px] leading-none">sales</span>
-          </Link>
-          <p className="mt-4 max-w-[22em] text-[15px] leading-relaxed text-[#a7aaa1]">
-            Business sales backed by valuation expertise. Prepare. Market. Sell.
-          </p>
-        </div>
+    <footer className="ft bg-[#1a1b19] text-[#c9ccc2]">
+      <div className="mx-auto flex max-w-[1200px] flex-col gap-14 px-4 pb-10 pt-20 sm:px-8">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+          <div className="flex min-w-0 flex-col gap-4">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-3 !text-[#f3f4ec] no-underline hover:!text-[#f3f4ec] hover:no-underline"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/assets/brand/bvosales-mark.svg"
+                alt="BVOSales"
+                width={49}
+                height={52}
+                style={{ height: 52, width: "auto", display: "block", maxWidth: 49 }}
+              />
+              <span
+                aria-hidden
+                className="border-l border-[#6b6e66] py-1 pl-3 text-[28px] font-normal leading-none tracking-tight"
+              >
+                sales
+              </span>
+            </Link>
+            <p className="m-0 max-w-[22em] text-[15px] leading-[1.6]">
+              Business sales backed by valuation expertise. Prepare. Market. Sell.
+            </p>
+          </div>
 
-        <div>
-          <h2 className="mb-4 text-[15px] font-semibold text-cream">Explore</h2>
-          <ul className="m-0 list-none space-y-2.5 p-0">
+          <div className="flex flex-col gap-3 text-[15px]">
+            <h2 className="m-0 mb-1 text-[15px] font-bold text-[#f3f4ec]">Explore</h2>
             {explore.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} className="text-[15px] text-[#c9ccc2] no-underline hover:text-white hover:underline">
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h2 className="mb-4 text-[15px] font-semibold text-cream">Contact</h2>
-          <ul className="m-0 list-none space-y-2.5 p-0 text-[15px]">
-            <li>
-              <a href="tel:1300282583" className="text-[#c9ccc2] no-underline hover:text-white">
-                1300 282 583
-              </a>
-            </li>
-            <li className="text-[#a7aaa1]">Level 8/200 Crown St, Wollongong NSW 2500</li>
-            <li>
-              <Link href="/start" className="text-[#c9ccc2] no-underline hover:text-white hover:underline">
-                Start the questionnaire
+              <Link key={item.href} href={item.href}>
+                {item.label}
               </Link>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h2 className="mb-4 text-[15px] font-semibold text-cream">The BVO Group</h2>
-          <ul className="m-0 list-none space-y-2.5 p-0">
-            {group.map((item) => (
-              <li key={item.label}>
-                <a
-                  href={item.href}
-                  className="inline-flex items-center gap-2.5 text-[15px] text-[#c9ccc2] no-underline hover:text-white"
-                  {...(item.href.startsWith("http")
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
-                >
-                  <span
-                    className="inline-block h-2.5 w-2.5 rounded-full"
-                    style={{ background: item.color }}
-                    aria-hidden
-                  />
-                  {item.label}
-                </a>
-              </li>
             ))}
-          </ul>
-        </div>
-      </div>
+          </div>
 
-      <div className="container border-t border-[#2c2f2a] py-6 text-[13px] leading-relaxed text-[#9a9d94]">
-        <p className="m-0 max-w-[70em]">
-          Information on this site is general in nature and does not take your personal circumstances into account.
-          Speak to your accountant or tax adviser before acting on anything relating to tax or structure. Business
-          sales are conducted by licensed brokers of Morgan Business Sales. Licence details to confirm.
+          <div className="flex flex-col gap-3 text-[15px]">
+            <h2 className="m-0 mb-1 text-[15px] font-bold text-[#f3f4ec]">Contact</h2>
+            <a href="tel:1300282583">1300 282 583</a>
+            <span>Level 8/200 Crown St, Wollongong NSW 2500</span>
+            <Link href="/start">Start the questionnaire</Link>
+          </div>
+
+          <div className="flex flex-col gap-3 text-[15px]">
+            <h2 className="m-0 mb-1 text-[15px] font-bold text-[#f3f4ec]">The BVO Group</h2>
+            {group.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="inline-flex items-center gap-2.5"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span
+                  className="inline-block shrink-0 rounded-full"
+                  style={{ width: 10, height: 10, background: item.color }}
+                  aria-hidden
+                />
+                {item.label}
+              </a>
+            ))}
+            <span className="inline-flex items-center gap-2.5 text-[#f3f4ec]">
+              <span
+                className="inline-block shrink-0 rounded-full"
+                style={{ width: 10, height: 10, background: "#d2b9ba" }}
+                aria-hidden
+              />
+              BVOSales
+            </span>
+          </div>
+        </div>
+
+        <p className="m-0 max-w-[62em] text-[13px] leading-[1.6] text-[#9a9d94]">
+          Information on this site is general in nature and does not take your personal circumstances into
+          account. Speak to your accountant or tax adviser before acting on anything relating to tax or
+          structure. Business sales are conducted by licensed brokers of Morgan Business Sales. [Licence details
+          to confirm.]
         </p>
-        <p className="mt-4 mb-0 flex flex-wrap gap-x-3 gap-y-1">
-          <span>© 2026 BVO. All rights reserved.</span>
-          <span>ABN 43 635 775 914</span>
-          <Link href="/privacy" className="text-[#9a9d94] hover:text-white">
-            Privacy policy
-          </Link>
-          <Link href="/terms" className="text-[#9a9d94] hover:text-white">
-            Terms and conditions
-          </Link>
-        </p>
+
+        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-[#2c2f2a] pt-6 text-[13px] text-[#9a9d94]">
+          <span>© 2026 BVO. All rights reserved. ABN 43 635 775 914</span>
+          <span className="flex gap-5">
+            <Link href="/privacy">Privacy policy</Link>
+            <Link href="/terms">Terms and conditions</Link>
+          </span>
+        </div>
       </div>
     </footer>
   );
